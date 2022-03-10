@@ -72,8 +72,14 @@ window.addEventListener('keydown', function(e){
 })
 
 document.querySelectorAll('.key').forEach(element => {
-  element.addEventListener('transitionend', (e) => console.log(e));
+  element.addEventListener('transitionend', (e) => {
+    if (e.propertyName === 'transform') {
+      e.target.classList.remove('playing');
+    }
+  });
 });
+
+//TO-DO: BUG - https://github.com/wesbos/JavaScript30/pull/452
 
 </script>
 
